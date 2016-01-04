@@ -100,6 +100,9 @@ AntiModals.dismissAll = function(error, data) {
     AntiModals.dismissOverlay(this, error, data);
   });
 
+  $('.anti-modal-drop-down').each(function() {
+    AntiModals.dismissDropDown(this, error, data);
+  });
 };
 
 

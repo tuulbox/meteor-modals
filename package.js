@@ -2,9 +2,9 @@
 
 Package.describe({
   summary:  "Modals and dialogs: the Meteor way",
-  name:     "anti:modals",
-  version:  "0.4.0",
-  git:      "https://github.com/anticoders/meteor-modals.git",
+  name:     "tuul:modals",
+  version:  "0.4.1",
+  git:      "https://github.com/tuulbox/meteor-modals",
 });
 
 Package.onUse(function (api, where) {
@@ -15,8 +15,9 @@ Package.onUse(function (api, where) {
 
   api.addFiles([
     'client/index.js',
-    
+
     'client/overlay.js',
+    'client/dropdown.js',
     'client/alert.html',
     'client/alert.js',
     'client/alert.css',
