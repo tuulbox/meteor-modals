@@ -26,11 +26,10 @@ AntiModals.dropDown = function(template, options, callback) {
   $dropDown.addClass('anti-modal-drop-down');
 
 
-  if(options.dropDownClass) {
-    if(typeof options.dropDownClass === 'string') {
-      $dropDown.addClass(options.dropDownClass);
-    }
+  if(options.dropDownClass && typeof options.dropDownClass === 'string') {
+    $dropDown.addClass(options.dropDownClass);
   }
+
   if(options.dropDownStyle) {
     $dropDown.css(options.dropDownStyle);
   }
@@ -51,8 +50,12 @@ AntiModals.dropDown = function(template, options, callback) {
   } else {
     $dropDown.fadeIn({
       duration: 300,
-      complete: function () {
-        $('body').on('click', function(event) {
+      always: () => {
+        $('#__blaze-root').on('click', (event) => {
+          AntiModals.dismissDropDown(dropDown);
+        });
+
+        $('[data-action=closeDropDown]').on('click', (event) => {
           AntiModals.dismissDropDown(dropDown);
         });
       },
