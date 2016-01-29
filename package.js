@@ -3,7 +3,7 @@
 Package.describe({
   summary:  "Modals and dialogs: the Meteor way",
   name:     "tuul:modals",
-  version:  "0.4.1",
+  version:  "0.4.2",
   git:      "https://github.com/tuulbox/meteor-modals",
 });
 
@@ -17,7 +17,7 @@ Package.onUse(function (api, where) {
     'client/index.js',
 
     'client/overlay.js',
-    'client/dropdown.js',
+    'client/dropDown.js',
     'client/alert.html',
     'client/alert.js',
     'client/alert.css',

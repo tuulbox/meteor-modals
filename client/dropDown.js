@@ -52,13 +52,9 @@ AntiModals.dropDown = function(template, options, callback) {
     $dropDown.fadeIn({
       duration: 300,
       complete: function () {
-        if(!options.modal) {
-          $('body').on('click', function(evnet) {
-            if (!$.contains($dropDown[0], event.target)) {
-              AntiModals.dismissDropDown(dropDown);
-            }
-          });
-        }
+        $('body').on('click', function(event) {
+          AntiModals.dismissDropDown(dropDown);
+        });
       },
     });
   }

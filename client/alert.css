@@ -14,11 +14,8 @@
 }
 
 .anti-modal-drop-down {
-  position: relative;
+  position: fixed;
   z-index: 65536;
-
-  height: 0;
-  width: 0;
 }
 
 
