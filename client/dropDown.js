@@ -51,11 +51,11 @@ AntiModals.dropDown = function(template, options, callback) {
     $dropDown.fadeIn({
       duration: 300,
       always: () => {
-        $('#__blaze-root').on('click', (event) => {
+        $('#__blaze-root').one('click', (event) => {
           AntiModals.dismissDropDown(dropDown);
         });
 
-        $('[data-action=closeDropDown]').on('click', (event) => {
+        $('[data-action=closeDropDown]').one('click', (event) => {
           AntiModals.dismissDropDown(dropDown);
         });
       },
@@ -84,17 +84,16 @@ AntiModals.dismissDropDown = function(element, error, data) {
 
   /* Dismiss */
   if(dropDownDiv.__antiModalsAnimateOut) {
-    dropDownDiv.__antiModalsAnimateOut(dropDownDiv, function() {
+    dropDownDiv.__antiModalsAnimateOut(dropDownDiv, () => {
       Blaze.remove(dropDownDiv.__antiModalsView);
       $dropDown.remove();
     });
   } else {
     $dropDown.fadeOut({
       duration: 300,
-      complete: function () {
+      always: () => {
         Blaze.remove(dropDownDiv.__antiModalsView);
         $dropDown.remove();
-        $('body').off();
       },
     });
   }
