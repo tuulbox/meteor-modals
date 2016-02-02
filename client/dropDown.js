@@ -49,7 +49,7 @@ AntiModals.dropDown = function(template, options, callback) {
     options.animateIn(dropDown);
   } else {
     $dropDown.fadeIn({
-      duration: 300,
+      duration: 75,
       always: () => {
         $('#__blaze-root').one('click', (event) => {
           AntiModals.dismissDropDown(dropDown);
@@ -90,7 +90,7 @@ AntiModals.dismissDropDown = function(element, error, data) {
     });
   } else {
     $dropDown.fadeOut({
-      duration: 300,
+      duration: 75,
       always: () => {
         Blaze.remove(dropDownDiv.__antiModalsView);
         $dropDown.remove();
