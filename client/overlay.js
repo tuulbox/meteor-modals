@@ -95,10 +95,12 @@ AntiModals.dismissOverlay = function(element, error, data) {
 };
 
 
-AntiModals.dismissAll = function(error, data) {
+AntiModals.dismissAll = function(closeDropDowns, error, data) {
   AntiModals.dismissAllModals(error, data);
 
-  AntiModals.dismissAllDropDowns(error, data);
+  if (closeDropDowns) {
+    AntiModals.dismissAllDropDowns(error, data);
+  }
 };
 
 AntiModals.dismissAllModals = function(error, data) {
