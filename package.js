@@ -3,13 +3,15 @@
 Package.describe({
   summary:  "Modals and dialogs: the Meteor way",
   name:     "tuul:modals",
-  version:  "0.4.5",
+  version:  "0.4.6",
   git:      "https://github.com/tuulbox/meteor-modals",
 });
 
 Package.onUse(function (api, where) {
-  api.versionsFrom('0.9.1.1');
-  api.use(['deps', 'underscore', 'templating', 'spacebars', 'ui'], 'client');
+  api.use('templating', 'client');
+  api.use('jquery', 'client');
+  api.use('underscore', 'client');
+  api.use('ecmascript');
 
   api.export('AntiModals', 'client');
 

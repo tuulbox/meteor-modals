@@ -95,18 +95,20 @@ AntiModals.dismissOverlay = function(element, error, data) {
 };
 
 
-AntiModals.dismissAll = function(closeDropDown, error, data) {
+AntiModals.dismissAll = function(error, data) {
+  AntiModals.dismissAllModals(error, data);
+
+  AntiModals.dismissAllDropDowns(error, data);
+};
+
+AntiModals.dismissAllModals = function(error, data) {
   $('.anti-modal-overlay').each(function() {
     AntiModals.dismissOverlay(this, error, data);
   });
-
-  if (closeDropDown) {
-    $('.anti-modal-drop-down').each(function () {
-      AntiModals.dismissDropDown(this, error, data);
-    });
-  }
 };
 
-
-
-
+AntiModals.dismissAllDropDowns = function(error, data) {
+  $('.anti-modal-drop-down').each(function () {
+    AntiModals.dismissDropDown(this, error, data);
+  });
+};

@@ -51,9 +51,7 @@ AntiModals.dropDown = function(template, options, callback) {
     $dropDown.fadeIn({
       duration: 75,
       always: () => {
-        $('#__blaze-root').one('click', (event) => {
-          AntiModals.dismissDropDown(dropDown);
-        });
+        $(document).on('click', {$dropDown: $dropDown}, AntiModals.toggleDropDown);
 
         $('[data-action=closeDropDown]').one('click', (event) => {
           AntiModals.dismissDropDown(dropDown);
@@ -67,6 +65,15 @@ AntiModals.dropDown = function(template, options, callback) {
 };
 
 
+AntiModals.toggleDropDown = function(event) {
+  let $dropDown = event.data.$dropDown;
+
+  if (($dropDown[0] !== event.target) && !$.contains($dropDown[0], event.target)) {
+    AntiModals.dismissDropDown($dropDown[0]);
+  }
+};
+
+
 
 AntiModals.dismissDropDown = function(element, error, data) {
   /* Get overlay */
@@ -76,6 +83,7 @@ AntiModals.dismissDropDown = function(element, error, data) {
 
   var dropDownDiv = $dropDown.get()[0];
 
+  $(document).off('click', AntiModals.toggleDropDown);
 
   /* Callback */
   if(dropDownDiv.__antiModalsCallback) {
