@@ -8,6 +8,7 @@ Package.describe({
 });
 
 Package.onUse(function (api, where) {
+  api.versionsFrom('1.2');
   api.use('templating', 'client');
   api.use('jquery', 'client');
   api.use('underscore', 'client');
