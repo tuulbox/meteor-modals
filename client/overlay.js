@@ -51,7 +51,7 @@ AntiModals.overlay = function(template, options, callback) {
   });
 
   overlay.__antiModalsCallback = callback;
-  $('body').append(overlay);
+  $('body').prepend(overlay);
 
   if(options.animateIn) {
     options.animateIn(overlay);

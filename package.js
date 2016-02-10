@@ -3,7 +3,7 @@
 Package.describe({
   summary:  "Modals and dialogs: the Meteor way",
   name:     "tuul:modals",
-  version:  "0.4.7",
+  version:  "0.4.8",
   git:      "https://github.com/tuulbox/meteor-modals",
 });
 
