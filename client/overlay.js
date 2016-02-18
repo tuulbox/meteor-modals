@@ -51,12 +51,13 @@ AntiModals.overlay = function(template, options, callback) {
   });
 
   overlay.__antiModalsCallback = callback;
-  $('body').prepend(overlay);
 
-  if(options.animateIn) {
+  $(overlay).insertBefore('#__blaze-root');
+
+  if (options.animateIn) {
     options.animateIn(overlay);
   } else {
-    $overlay.fadeIn(300);  
+    $overlay.fadeIn(300);
   }
 
   if(options.animateOut) overlay.__antiModalsAnimateOut = options.animateOut;

@@ -43,7 +43,8 @@ AntiModals.dropDown = function(template, options, callback) {
   });
 
   dropDown.__antiModalsCallback = callback;
-  $('body').append(dropDown);
+
+  $(dropDown).insertBefore('#__blaze-root');
 
   if(options.animateIn) {
     options.animateIn(dropDown);
